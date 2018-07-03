@@ -2266,10 +2266,6 @@ hoek@4.x.x:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.0.tgz#72d9d0754f7fe25ca2d01ad8f8f9a9449a89526d"
 
-hoist-non-react-statics@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
-
 home-or-tmp@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/home-or-tmp/-/home-or-tmp-2.0.0.tgz#e36c3f2d2cae7d746a857e38d18d5f32a7882db8"
@@ -2374,12 +2370,6 @@ inquirer@^3.0.6:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
-
-invariant@^2.0.0:
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
-  dependencies:
-    loose-envify "^1.0.0"
 
 invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
@@ -3049,10 +3039,6 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash-es@^4.17.5:
-  version "4.17.10"
-  resolved "https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
-
 lodash._basecopy@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash._basecopy/-/lodash._basecopy-3.0.1.tgz#8da0e6a876cf344c0ad8a54882111dd3c5c7ca36"
@@ -3163,10 +3149,6 @@ lodash@^3.5.0:
 lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
-
-lodash@^4.17.5:
-  version "4.17.10"
-  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
 lodash@^4.2.0:
   version "4.17.5"
@@ -3923,19 +3905,18 @@ react-native-keyboard-aware-scroll-view@^0.5.0:
     prop-types "^15.6.0"
     react-native-iphone-x-helper "^1.0.1"
 
-react-native-root-siblings@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/react-native-root-siblings/-/react-native-root-siblings-3.1.0.tgz#194067d37d4d2c824d923148e53922ee6ac2e06f"
+react-native-root-siblings@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/react-native-root-siblings/-/react-native-root-siblings-2.2.0.tgz#57bb2f7b0a5399c48e14b36d5f3ae7015cd3fb95"
   dependencies:
-    react-redux "*"
     static-container "^1.0.0"
 
-react-native-root-toast@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/react-native-root-toast/-/react-native-root-toast-3.0.1.tgz#ad0a37c46bc72971a229c7784df25147004e5538"
+react-native-root-toast@^2.2.0:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/react-native-root-toast/-/react-native-root-toast-2.2.1.tgz#62e2edd988afb7342aab50e93156fb813861a964"
   dependencies:
     prop-types "^15.5.10"
-    react-native-root-siblings "^3.0.0"
+    react-native-root-siblings "^2.2.0"
 
 react-native@^0.52.2:
   version "0.52.2"
@@ -4002,17 +3983,6 @@ react-proxy@^1.1.7:
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
-
-react-redux@*:
-  version "5.0.7"
-  resolved "https://registry.npmjs.org/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
-  dependencies:
-    hoist-non-react-statics "^2.5.0"
-    invariant "^2.0.0"
-    lodash "^4.17.5"
-    lodash-es "^4.17.5"
-    loose-envify "^1.1.0"
-    prop-types "^15.6.0"
 
 react-test-renderer@^16.2.0:
   version "16.2.0"
