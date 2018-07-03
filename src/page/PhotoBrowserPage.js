@@ -24,7 +24,7 @@ export default class extends React.Component {
             showHud: false,
             hudText: '',
         };
-    };
+    }
 
     constructor(props) {
         super(props);

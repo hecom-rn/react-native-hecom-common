@@ -10,6 +10,7 @@ import md5 from 'md5';
 import Toast from 'react-native-root-toast';
 import PhotoBrowserPage from './page/PhotoBrowserPage';
 import ActionSheet from './component/ActionSheet/ActionSheet';
+import Tree, * as TreeKeys from './util/Tree';
 
 export {
     ArrowImage,
@@ -26,4 +27,6 @@ export {
     md5,
     Toast,
     PhotoBrowserPage,
+    Tree,
+    TreeKeys,
 };

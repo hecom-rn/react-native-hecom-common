@@ -25,6 +25,7 @@ export default class extends React.Component {
     }
 
     _renderToast = () => {
+        const {text} = this.props;
         return (
             <View style={styles.container}>
                 <View style={styles.innerContainer}>
