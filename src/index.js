@@ -1,4 +1,5 @@
 import ArrowImage from './component/ArrowImage';
+import ActivityIndicator from './component/ActivityIndicator';
 import SeperatorLine from './component/SeperatorLine';
 import SeperatorSpace from './component/SeperatorSpace';
 import TextInput from './component/TextInput';
@@ -7,9 +8,13 @@ import SearchBar from './component/SearchBar';
 import { KeyboardAwareListView, KeyboardAwareScrollView, KeyboardAwareFlatList} from 'react-native-keyboard-aware-scroll-view';
 import md5 from 'md5';
 import Toast from 'react-native-root-toast';
+import PhotoBrowserPage from './page/PhotoBrowserPage';
+import ActionSheet from './component/ActionSheet/ActionSheet';
 
 export {
     ArrowImage,
+    ActionSheet,
+    ActivityIndicator,
     SeperatorLine,
     SeperatorSpace,
     TextInput,
@@ -20,4 +25,5 @@ export {
     KeyboardAwareFlatList,
     md5,
     Toast,
+    PhotoBrowserPage,
 };

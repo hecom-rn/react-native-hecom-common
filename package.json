@@ -1,6 +1,6 @@
 {
   "name": "react-native-hecom-common",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "description": "Public UI components and data structures.",
   "main": "src/index.js",
@@ -37,14 +37,17 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-native": "^0.52.2",
-    "react-test-renderer": "^16.2.0"
+    "react-test-renderer": "^16.2.0",
+    "react-native-pure-navigation-bar": "^1.2.1"
   },
   "jest": {
     "preset": "react-native"
   },
   "dependencies": {
     "md5": "^2.2.1",
+    "rc-dialog": "^6.5.11",
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
-    "react-native-root-toast": "^2.2.0"
+    "react-native-root-toast": "^2.2.0",
+    "react-native-image-zoom-viewer": "^2.2.5"
   }
 }
