@@ -7,7 +7,8 @@ export const kLabel = '__treelabel__';
 export const kParent = '__treeparent__';
 export const kPinyin = '__pinyin__';
 export const kInitialPinyin = '__initialpinyin__';
-export const kStatusChangeEvent = '__TreeUpdateListener__';
+
+const kStatusChangeEvent = '__TreeUpdateListener__';
 
 const Tree = class {
     constructor(root, parent, childrenKey, idKey, labelKey) {
@@ -214,8 +215,12 @@ const Tree = class {
         this.root[kParent] && this.root[kParent]._fromDownNotification();
     };
 
+    listenerKey = () => {
+        return kStatusChangeEvent + this.root[kId];
+    };
+
     _onStatusChange = () => {
-        DeviceEventEmitter.emit(kStatusChangeEvent, this.root[kId]);
+        DeviceEventEmitter.emit(this.listenerKey());
     };
 };
 
