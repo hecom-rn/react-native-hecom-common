@@ -17,8 +17,9 @@ const Tree = class {
         this.root[kId] = String(this.root[idKey]);
         this.root[kLabel] = this.root[labelKey];
         this.generatePinyin();
-        this.root[kChild] = (this.root[childrenKey] || [])
-            .map(item => new Tree(item, this, childrenKey, idKey, labelKey));
+        this.root[kChild] = this.root[childrenKey] ?
+            this.root[childrenKey].map(item => new Tree(item, this, childrenKey, idKey, labelKey)) :
+            undefined;
         this.isSelected = 0;
     }
 
@@ -29,7 +30,7 @@ const Tree = class {
         this.root[kInitialPinyin] = rInitialPinyin.map(item => item[0].substring(0, 1)).join('');
     };
 
-    isLeaf = () => this.root[kChild].length === 0;
+    isLeaf = () => this.root[kChild] === undefined;
 
     selectStatus = () => {
         if (this.isLeaf()) {
