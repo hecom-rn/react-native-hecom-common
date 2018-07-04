@@ -1,6 +1,6 @@
 import React from 'react';
 import { CameraRoll, Dimensions, Modal, Platform, StyleSheet, Text, View, } from 'react-native';
-import { ActivityIndicator } from 'rncommonui';
+import ActivityIndicator from '../component/ActivityIndicator';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import PropTypes from 'prop-types';
 import NaviBar from 'react-native-pure-navigation-bar';
