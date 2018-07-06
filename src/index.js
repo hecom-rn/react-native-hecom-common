@@ -15,6 +15,7 @@ import DropDownFilter from './component/DropDownFilter';
 import ClickableNaviTitle from './component/ClickableNaviTitle';
 import TitleDropDownFilter from './component/TitleDropDownFilter';
 import * as LocationUtil from './util/Location';
+import * as AsyncStorage from './util/AsyncStorage';
 
 export {
     ArrowImage,
@@ -37,4 +38,5 @@ export {
     ClickableNaviTitle,
     TitleDropDownFilter,
     LocationUtil,
+    AsyncStorage,
 };
