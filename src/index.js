@@ -17,6 +17,7 @@ import TitleDropDownFilter from './component/TitleDropDownFilter';
 import * as LocationUtil from './util/LocationUtil';
 import * as AsyncStorage from './util/AsyncStorage';
 import * as ObjectUtil from './util/ObjectUtil';
+import * as StringUtil from './util/StringUtil';
 
 export {
     ArrowImage,
@@ -41,4 +42,5 @@ export {
     LocationUtil,
     AsyncStorage,
     ObjectUtil,
+    StringUtil,
 };
