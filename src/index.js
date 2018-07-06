@@ -12,6 +12,7 @@ import PhotoBrowserPage from './page/PhotoBrowserPage';
 import ActionSheet from './component/ActionSheet/ActionSheet';
 import Tree, * as TreeKeys from './util/Tree';
 import DropDownFilter from './component/DropDownFilter';
+import ClickableNaviTitle from './component/ClickableNaviTitle';
 
 export {
     ArrowImage,
@@ -31,4 +32,5 @@ export {
     Tree,
     TreeKeys,
     DropDownFilter,
+    ClickableNaviTitle,
 };
