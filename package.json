@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "md5": "^2.2.1",
-    "pinyin": "git+https://github.com/RNCommon/pinyin.git",
+    "pinyin": "https://github.com/RNCommon/pinyin.git",
     "rc-dialog": "^6.5.11",
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
     "react-native-root-toast": "^2.2.0",

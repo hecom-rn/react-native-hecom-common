@@ -13,6 +13,7 @@ import ActionSheet from './component/ActionSheet/ActionSheet';
 import Tree, * as TreeKeys from './util/Tree';
 import DropDownFilter from './component/DropDownFilter';
 import ClickableNaviTitle from './component/ClickableNaviTitle';
+import TitleDropDownFilter from './component/TitleDropDownFilter';
 
 export {
     ArrowImage,
@@ -33,4 +34,5 @@ export {
     TreeKeys,
     DropDownFilter,
     ClickableNaviTitle,
+    TitleDropDownFilter,
 };

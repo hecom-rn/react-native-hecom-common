@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     image: {
         width: 11,
         height: 11,
-        color: '#999999',
         marginLeft: 6,
     },
 });

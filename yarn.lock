@@ -3778,9 +3778,9 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
-"pinyin@git+https://github.com/RNCommon/pinyin.git":
+"pinyin@https://github.com/RNCommon/pinyin.git":
   version "2.8.3"
-  resolved "git+https://github.com/RNCommon/pinyin.git#45e3baea4c76d17eceeda537fc7a60d9525e70d1"
+  resolved "https://github.com/RNCommon/pinyin.git#45e3baea4c76d17eceeda537fc7a60d9525e70d1"
   dependencies:
     commander "~1.1.1"
     object-assign "^4.0.1"

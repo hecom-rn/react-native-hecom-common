@@ -35,6 +35,7 @@ npm install --save react-native-hecom-common
 * SeperatorLine：分隔线。
 * SeperatorSpace：包括水平和垂直的分隔区域。
 * TextInput：文本输入框。
+* TitleDropDownFilter：标题点击后的下拉框。
 * Toast：下方弹出的提示信息。
 * Tree：树状结构。
 * TreeKeys：树状结构的内部键。
