@@ -19,6 +19,7 @@ import * as AsyncStorage from './util/AsyncStorage';
 import * as ObjectUtil from './util/ObjectUtil';
 import * as StringUtil from './util/StringUtil';
 import * as Specifics from './util/Specifics';
+import * as AliyunUtil from './util/AliyunUtil';
 
 export {
     ArrowImage,
@@ -45,4 +46,5 @@ export {
     ObjectUtil,
     StringUtil,
     Specifics,
+    AliyunUtil,
 };

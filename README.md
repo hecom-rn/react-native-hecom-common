@@ -22,6 +22,7 @@ npm install --save react-native-hecom-common
 
 * ActionSheet：下方弹出式选择框。
 * ActivityIndicator：圆形动画加载框。
+* AliyunUtil：阿里云相关工具。
 * ArrowImage：右箭头图标。
 * AsyncStorage：异步持久化存储。
 * ClickableNaviTitle：可点击的导航标题。
