@@ -1,29 +1,36 @@
 import React from 'react';
 import { View, TouchableOpacity,Text, StyleSheet, Keyboard, Image } from 'react-native';
+import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 
 /**
  * 通用搜索控件。
  */
 export default class extends React.Component {
-    /**
-     * autoFocus：是否自动focus
-     * searchText：搜索文字
-     * placeholder：占位文字
-     * onPressCancel：取消操作
-     * onSubmitEditing: 提交编辑
-     * onChangeText:文字变更
-     * hasCancel：是否有取消按钮
-     * isSearching：是否处于搜索中状态
-     */
+    static propTypes = {
+        autoFocus: PropTypes.bool, // 是否自动focus
+        searchText: PropTypes.string, // 搜索栏中的文字
+        placeholder: PropTypes.string, // 占位文字
+        onPressCancel: PropTypes.func, // 取消操作
+        onSubmitEditing: PropTypes.func, // 提交编辑
+        onChangeText: PropTypes.func, // 文字变更
+        hasCancel: PropTypes.bool, // 是否有取消按钮
+        isSearching: PropTypes.bool, // 是否处于搜索中状态
+    };
 
     static get defaultProps() {
         return {
             autoFocus: false,
+            searchText: '',
+            placeholder: '',
             hasCancel: false,
             isSearching: true,
         };
     }
+
+    _onTextChange = (text) => {
+        this.props.onChangeText && this.props.onChangeText(text);
+    };
 
     render() {
         return (
@@ -39,15 +46,15 @@ export default class extends React.Component {
                         onSubmitEditing={this.props.onSubmitEditing}
                         autoFocus={this.props.autoFocus}
                         value={this.props.searchText}
-                        onChangeText={this.props.onChangeText}
-                        onFocus={() => this.props.onChangeText(this.props.searchText)}
+                        onChangeText={this._onTextChange}
+                        onFocus={() => this._onTextChange(this.props.searchText)}
                         autoCorrect={false}
                         clearButtonMode="never"
                     />
                     {this.props.isSearching && (
                         <TouchableOpacity
                             style={styles.emptyInputContainer}
-                            onPress={this.props.onChangeText.bind(this,'')}
+                            onPress={() => this._onTextChange('')}
                         >
                             <Image source={search_empty_image} style={styles.searchEmpty} />
                         </TouchableOpacity>
