@@ -14,8 +14,9 @@ import Tree, * as TreeKeys from './util/Tree';
 import DropDownFilter from './component/DropDownFilter';
 import ClickableNaviTitle from './component/ClickableNaviTitle';
 import TitleDropDownFilter from './component/TitleDropDownFilter';
-import * as LocationUtil from './util/Location';
+import * as LocationUtil from './util/LocationUtil';
 import * as AsyncStorage from './util/AsyncStorage';
+import * as ObjectUtil from './util/ObjectUtil';
 
 export {
     ArrowImage,
@@ -39,4 +40,5 @@ export {
     TitleDropDownFilter,
     LocationUtil,
     AsyncStorage,
+    ObjectUtil,
 };

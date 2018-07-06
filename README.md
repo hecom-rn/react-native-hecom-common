@@ -32,6 +32,7 @@ npm install --save react-native-hecom-common
 * KeyboardAwareFlatList：键盘事件自动滚动的FlatList。
 * LocationUtil：定位相关工具。
 * md5：MD5加密算法。
+* ObjectUtil：JS对象相关工具。
 * PhotoBrowserPage：图片批量预览功能页面。
 * SearchBar：通用搜索栏。
 * SeperatorLine：分隔线。
