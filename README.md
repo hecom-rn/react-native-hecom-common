@@ -37,6 +37,7 @@ npm install --save react-native-hecom-common
 * SearchBar：通用搜索栏。
 * SeperatorLine：分隔线。
 * SeperatorSpace：包括水平和垂直的分隔区域。
+* Specifics：特殊的数据结构，用于定义一般性数据和特殊性数据的查找方法。
 * StringUtil：字符串相关工具。
 * TextInput：文本输入框。
 * TitleDropDownFilter：标题点击后的下拉框。
