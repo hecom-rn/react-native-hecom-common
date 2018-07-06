@@ -36,3 +36,4 @@ npm install --save react-native-hecom-common
 * PhotoBrowserPage：图片批量预览功能页面。
 * Tree：树状结构。
 * TreeKeys：树状结构的内部键。
+* DropDownFilter：通用下拉框。

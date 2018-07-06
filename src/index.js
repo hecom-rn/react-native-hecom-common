@@ -11,6 +11,7 @@ import Toast from 'react-native-root-toast';
 import PhotoBrowserPage from './page/PhotoBrowserPage';
 import ActionSheet from './component/ActionSheet/ActionSheet';
 import Tree, * as TreeKeys from './util/Tree';
+import DropDownFilter from './component/DropDownFilter';
 
 export {
     ArrowImage,
@@ -29,4 +30,5 @@ export {
     PhotoBrowserPage,
     Tree,
     TreeKeys,
+    DropDownFilter,
 };
