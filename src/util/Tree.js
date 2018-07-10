@@ -1,5 +1,5 @@
-import { DeviceEventEmitter } from 'react-native';
 import pinyin from 'pinyin';
+import * as Listener from './Listener';
 
 export const kId = '__treeid__';
 export const kChild = '__treechild__';
@@ -217,11 +217,11 @@ const Tree = class {
     };
 
     listenerKey = () => {
-        return kStatusChangeEvent + this.root[kId];
+        return [kStatusChangeEvent, this.root[kId]];
     };
 
     _onStatusChange = () => {
-        DeviceEventEmitter.emit(this.listenerKey());
+        Listener.trigger(this.listenerKey());
     };
 };
 
