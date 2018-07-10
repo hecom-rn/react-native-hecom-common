@@ -1,6 +1,6 @@
 import { DeviceEventEmitter } from 'react-native';
 
-rootNode = {};
+const rootNode = {};
 
 export function register(type, func, seperator = '-') {
     const eventName = convertTypeToEventName(type, seperator);
