@@ -8,7 +8,7 @@ export function register(type, func, seperator = '-') {
     if (rootNode[eventName]) {
         rootNode[eventName].append(listenerObj);
     } else {
-        rootNode[eventName] = {listenerObj};
+        rootNode[eventName] = [listenerObj];
     }
     return listenerObj;
 }

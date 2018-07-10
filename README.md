@@ -18,31 +18,4 @@ npm install --save react-native-hecom-common
 
 ## 内容
 
-包括如下公共组件和数据结构：
-
-* ActionSheet：下方弹出式选择框。
-* ActivityIndicator：圆形动画加载框。
-* AliyunUtil：阿里云相关工具。
-* ArrowImage：右箭头图标。
-* AsyncStorage：异步持久化存储。
-* ClickableNaviTitle：可点击的导航标题。
-* DropDownFilter：通用下拉框。
-* FakeSearchBar：伪搜索栏。
-* KeyboardAwareScrollView：键盘事件自动滚动的ScrollView。
-* KeyboardAwareListView：键盘事件自动滚动的ListView。
-* KeyboardAwareFlatList：键盘事件自动滚动的FlatList。
-* Listener：事件的发送和监听工具。
-* LocationUtil：定位相关工具。
-* md5：MD5加密算法。
-* ObjectUtil：JS对象相关工具。
-* PhotoBrowserPage：图片批量预览功能页面。
-* SearchBar：通用搜索栏。
-* SeperatorLine：分隔线。
-* SeperatorSpace：包括水平和垂直的分隔区域。
-* Specifics：特殊的数据结构，用于定义一般性数据和特殊性数据的查找方法。
-* StringUtil：字符串相关工具。
-* TextInput：文本输入框。
-* TitleDropDownFilter：标题点击后的下拉框。
-* Toast：下方弹出的提示信息。
-* Tree：树状结构。
-* TreeKeys：树状结构的内部键。
+参见[Wiki](https://github.com/RNCommon/react-native-hecom-common/wiki)。
