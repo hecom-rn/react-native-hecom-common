@@ -1,5 +1,5 @@
 import React from 'react';
-import { CameraRoll, Modal, Platform, StyleSheet, Text, View, } from 'react-native';
+import { CameraRoll, Modal, StyleSheet, Text, View, } from 'react-native';
 import ActivityIndicator from '../component/ActivityIndicator';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import PropTypes from 'prop-types';
@@ -103,7 +103,7 @@ export default class extends React.Component {
     };
 
     save = (url, path) => {
-        const localUrl = Platform.OS === 'android' ? 'file://' + path : '' + path;
+        const localUrl = global.isAndroid ? 'file://' + path : '' + path;
         const that = this;
         that.setState({
             activityIndicatorAnimating: true,

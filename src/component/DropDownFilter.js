@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -55,7 +55,7 @@ export default class extends React.Component {
     onSelect = (data, func) => {
         let time = 0;
         this.canScrollToTop = true;
-        if (Platform.OS === 'ios') {
+        if (global.isIos) {
             time = 250;
             this.scrollView.scrollTo({x: 0, y: this.props.rowOffset(this.state.rawData.length), animated: true});
         } else {
