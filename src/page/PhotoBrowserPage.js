@@ -1,5 +1,5 @@
 import React from 'react';
-import { CameraRoll, Dimensions, Modal, Platform, StyleSheet, Text, View, } from 'react-native';
+import { CameraRoll, Modal, Platform, StyleSheet, Text, View, } from 'react-native';
 import ActivityIndicator from '../component/ActivityIndicator';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import PropTypes from 'prop-types';
@@ -47,8 +47,8 @@ export default class extends React.Component {
     }
 
     indicator = () => {
-        const x = Dimensions.get('window').width * 0.5 - 45;
-        const y = Dimensions.get('window').height * 0.5 - 45;
+        const x = global.screenWidth() * 0.5 - 45;
+        const y = global.screenHeight() * 0.5 - 45;
         return (
             <View style={{
                 position: 'absolute',
@@ -69,8 +69,8 @@ export default class extends React.Component {
     };
 
     textHud = () => {
-        const x = Dimensions.get('window').width * 0.5 - 45;
-        const y = Dimensions.get('window').height * 0.5 - 45;
+        const x = global.screenWidth() * 0.5 - 45;
+        const y = global.screenHeight() * 0.5 - 45;
         return (
             <View style={{
                 position: 'absolute',

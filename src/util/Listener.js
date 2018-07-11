@@ -6,7 +6,7 @@ export function register(type, func, seperator = '-') {
     const eventName = convertTypeToEventName(type, seperator);
     const listenerObj = DeviceEventEmitter.addListener(eventName, func);
     if (rootNode[eventName]) {
-        rootNode[eventName].append(listenerObj);
+        rootNode[eventName].push(listenerObj);
     } else {
         rootNode[eventName] = [listenerObj];
     }

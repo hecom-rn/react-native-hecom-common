@@ -21,6 +21,7 @@ import * as StringUtil from './util/StringUtil';
 import * as Specifics from './util/Specifics';
 import * as AliyunUtil from './util/AliyunUtil';
 import * as Listener from './util/Listener';
+import './global';
 
 export {
     ArrowImage,

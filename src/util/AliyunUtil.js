@@ -1,4 +1,4 @@
-import { Dimensions, PixelRatio } from 'react-native';
+import { PixelRatio } from 'react-native';
 
 export const RESIZE_MODE = {LFIT: 'lfit', MFIT: 'mfit', FILL: 'fill', PAD: 'pad', FIXED: 'fixed'};
 
@@ -17,8 +17,8 @@ export function getThumbnail(url, height, width = height, scaleType = RESIZE_MOD
         return url;
     }
     if (typeof height === 'undefined' && typeof width === 'undefined') {
-        width = Dimensions.get('window').width;
-        height = Dimensions.get('window').height;
+        width = global.screenWidth();
+        height = global.screenHeight();
     }
     if (typeof width === 'undefined') {
         width = height;
