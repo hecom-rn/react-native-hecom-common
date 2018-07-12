@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, TouchableOpacity, Image, Text } from 'react-native';
+import { TouchableOpacity, Image, Text, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 
 export default class extends React.Component {
     static propTypes = {
         placeholder: PropTypes.string,
         onFocus: PropTypes.func,
-        style: PropTypes.any,
+        image: PropTypes.any,
+        touchStyle: ViewPropTypes.style,
+        imageStyle: ViewPropTypes.style,
+        textStyle: ViewPropTypes.style,
     };
 
     static get defaultProps() {
@@ -16,41 +19,17 @@ export default class extends React.Component {
     }
 
     render() {
-        const {placeholder, onFocus, style, activeOpacity} = this.props;
+        const {placeholder, image, onFocus, activeOpacity, touchStyle, imageStyle, textStyle} = this.props;
         return (
-            <TouchableOpacity onPress={onFocus} style={[styles.touch, style]}  activeOpacity={activeOpacity}>
+            <TouchableOpacity onPress={onFocus} style={touchStyle}  activeOpacity={activeOpacity}>
                 <Image
-                    source={require('../image/input_search.png')}
-                    style={styles.image}
+                    source={image || require('../image/input_search.png')}
+                    style={imageStyle}
                 />
-                <Text style={styles.text} numberOfLines={1}>
+                <Text style={textStyle} numberOfLines={1}>
                     {placeholder}
                 </Text>
             </TouchableOpacity>
         );
     }
 }
-
-const styles = {
-    touch: {
-        flex: 1,
-        height: 35,
-        marginLeft: 16,
-        marginRight: 8,
-        borderRadius: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: '#e8e8ea',
-    },
-    image: {
-        marginLeft: 10,
-        width: 16,
-        height: 16,
-    },
-    text: {
-        marginLeft: 6,
-        fontSize: 15,
-        color: '#999999',
-        flex: 1
-    },
-};
