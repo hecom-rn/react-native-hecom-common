@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Image, Text, ViewPropTypes } from 'react-native';
+import { TouchableOpacity, Image, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 export default class extends React.Component {
@@ -7,9 +7,9 @@ export default class extends React.Component {
         placeholder: PropTypes.string,
         onFocus: PropTypes.func,
         image: PropTypes.any,
-        touchStyle: ViewPropTypes.style,
-        imageStyle: ViewPropTypes.style,
-        textStyle: ViewPropTypes.style,
+        touchStyle: PropTypes.any,
+        imageStyle: PropTypes.any,
+        textStyle: PropTypes.any,
     };
 
     static get defaultProps() {
