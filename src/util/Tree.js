@@ -35,6 +35,8 @@ const Tree = class {
     selectStatus = () => {
         if (this.isLeaf()) {
             return this.isSelected;
+        } else if (this.isSelected === 1) {
+            return this.isSelected;
         } else {
             if (this.getSelectedLeafCount() === 0) {
                 return 0;
@@ -122,16 +124,16 @@ const Tree = class {
         }
     };
 
-    setInitialState = (selectedIds) => {
+    setInitialState = (selectedIds, cascade = true) => {
         const result = [];
         if (Array.isArray(selectedIds) && selectedIds.length > 0) {
             selectedIds = selectedIds.map(item => String(item));
             if (selectedIds.indexOf(this.root[kId]) >= 0) {
-                this.update();
+                this.update(cascade);
                 result.push(this);
             } else if (!this.isLeaf()) {
                 this.root[kChild].forEach(subNode => {
-                    const r = subNode.setInitialState(selectedIds);
+                    const r = subNode.setInitialState(selectedIds, cascade);
                     r.forEach(item => result.push(item));
                 });
             }
@@ -139,14 +141,14 @@ const Tree = class {
         return result;
     };
 
-    update = () => {
+    update = (cascade = true) => {
         if (this.isLeaf()) {
             this.isSelected = 1 - this.isSelected;
         } else {
-            const currentStatus = this.selectStatus() < 1 ? 1 : 0;
-            this.root[kChild].forEach(treeNode => treeNode._fromUpNotification(currentStatus));
+            this.isSelected = this.selectStatus() < 1 ? 1 : 0;
+            cascade && this.root[kChild].forEach(treeNode => treeNode._fromUpNotification(this.isSelected));
         }
-        this.root[kParent] && this.root[kParent]._fromDownNotification();
+        cascade && this.root[kParent] && this.root[kParent]._fromDownNotification();
         this._onStatusChange();
     };
 
