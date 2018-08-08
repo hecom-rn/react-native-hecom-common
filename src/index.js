@@ -10,7 +10,6 @@ import md5 from 'md5';
 import Toast from 'react-native-root-toast';
 import PhotoBrowserPage from './page/PhotoBrowserPage';
 import ActionSheet from './component/ActionSheet/ActionSheet';
-import Tree, * as TreeKeys from './util/Tree';
 import DropDownFilter from './component/DropDownFilter';
 import ClickableNaviTitle from './component/ClickableNaviTitle';
 import TitleDropDownFilter from './component/TitleDropDownFilter';
@@ -38,8 +37,6 @@ export {
     md5,
     Toast,
     PhotoBrowserPage,
-    Tree,
-    TreeKeys,
     DropDownFilter,
     ClickableNaviTitle,
     TitleDropDownFilter,

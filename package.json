@@ -1,6 +1,6 @@
 {
   "name": "react-native-hecom-common",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "description": "Public UI components and data structures.",
   "main": "src/index.js",
@@ -45,7 +45,6 @@
   },
   "dependencies": {
     "md5": "^2.2.1",
-    "pinyin": "https://github.com/RNCommon/pinyin.git",
     "rc-dialog": "^6.5.11",
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
     "react-native-root-toast": "^2.2.0",
