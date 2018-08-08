@@ -14,7 +14,6 @@ export default class extends React.Component {
     static get defaultProps() {
         return {
             lineColor: '#e6e6e6',
-            style: null,
         };
     }
 
