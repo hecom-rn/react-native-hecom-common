@@ -19,7 +19,6 @@ import * as ObjectUtil from './util/ObjectUtil';
 import * as StringUtil from './util/StringUtil';
 import * as Specifics from './util/Specifics';
 import * as AliyunUtil from './util/AliyunUtil';
-import * as Listener from './util/Listener';
 import './global';
 
 export {
@@ -46,5 +45,4 @@ export {
     StringUtil,
     Specifics,
     AliyunUtil,
-    Listener,
 };
