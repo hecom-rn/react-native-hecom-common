@@ -14,7 +14,6 @@ import DropDownFilter from './component/DropDownFilter';
 import ClickableNaviTitle from './component/ClickableNaviTitle';
 import TitleDropDownFilter from './component/TitleDropDownFilter';
 import * as LocationUtil from './util/LocationUtil';
-import * as AsyncStorage from './util/AsyncStorage';
 import * as ObjectUtil from './util/ObjectUtil';
 import * as StringUtil from './util/StringUtil';
 import * as Specifics from './util/Specifics';
@@ -40,7 +39,6 @@ export {
     ClickableNaviTitle,
     TitleDropDownFilter,
     LocationUtil,
-    AsyncStorage,
     ObjectUtil,
     StringUtil,
     Specifics,
