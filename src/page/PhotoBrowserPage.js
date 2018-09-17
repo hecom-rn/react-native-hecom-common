@@ -123,15 +123,13 @@ export default class extends React.Component {
     };
 
     render() {
-        const { renderRightNavi } = this.props;
+        const { renderRightNavi, onClose } = this.props;
         return (
             <Modal
                 visible={this.state.modalVisible}
                 transparent={true}
                 animationType="fade"
-                onRequestClose={() => {
-                    this.props.onClose();
-                }}
+                onRequestClose={() => onClose && onClose()}
             >
                 <ImageViewer
                     index={this.props.currentIndex}
@@ -142,7 +140,7 @@ export default class extends React.Component {
                     renderIndicator={(index, size) => <Text style={styles.indicator}>{index + '/' + size}</Text>}
                 />
                 <NaviBar
-                    onLeft={this.props.onClose}
+                    onLeft={() => onClose && !!onClose()}
                     style={naviBarStyle}
                     hasSeperatorLine={false}
                     {...(renderRightNavi ? renderRightNavi() : {})}
