@@ -5,8 +5,7 @@
   "description": "Public UI components and data structures.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "lint": "eslint src/*.js src/**/*.js"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "repository": {
     "type": "git",
@@ -14,8 +13,7 @@
   },
   "keywords": [
     "React-Native",
-    "Common",
-    "Hecom"
+    "Common"
   ],
   "author": "Xiaosong Gao",
   "license": "MIT",
