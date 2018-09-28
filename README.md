@@ -1,7 +1,5 @@
 # react-native-hecom-common
 
-[![Build Status](https://travis-ci.org/RNCommon/react-native-hecom-common.svg?branch=master)](https://travis-ci.org/RNCommon/react-native-hecom-common)
-
 ## 安装
 
 使用Yarn安装:
