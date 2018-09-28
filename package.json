@@ -24,15 +24,6 @@
     "email": "gaoxiaosong06@gmail.com"
   },
   "homepage": "https://github.com/RNCommon/react-native-hecom-common#readme",
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.17.0",
-    "eslint-plugin-react": "^7.6.1",
-    "eslint-plugin-react-native": "^3.2.1"
-  },
   "dependencies": {
     "md5": "^2.2.1",
     "rc-dialog": "^6.5.11",
