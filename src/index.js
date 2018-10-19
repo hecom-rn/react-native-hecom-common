@@ -2,7 +2,6 @@ import ArrowImage from './component/ArrowImage';
 import ActivityIndicator from './component/ActivityIndicator';
 import SeperatorLine from './component/SeperatorLine';
 import SeperatorSpace from './component/SeperatorSpace';
-import TextInput from './component/TextInput';
 import md5 from 'md5';
 import PhotoBrowserPage from './page/PhotoBrowserPage';
 import ActionSheet from './component/ActionSheet/ActionSheet';
@@ -21,7 +20,6 @@ export {
     ActivityIndicator,
     SeperatorLine,
     SeperatorSpace,
-    TextInput,
     md5,
     PhotoBrowserPage,
     DropDownFilter,
