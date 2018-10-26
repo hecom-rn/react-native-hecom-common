@@ -30,15 +30,16 @@ export default class extends React.Component {
 
     render() {
         const { title, onPress, imageStatus } = this.state;
+        const {style, textStyle, imageStyle} = this.props;
         return (
             <TouchableOpacity onPress={onPress}>
-                <View style={styles.view}>
-                    <Text style={styles.text}>
+                <View style={[styles.view, style]}>
+                    <Text style={[styles.text, textStyle]}>
                         {title}
                     </Text>
                     <Image
                         source={imageStatus ? arrow_up : arrow_down}
-                        style={styles.image}
+                        style={[styles.image, imageStyle]}
                     />
                 </View>
             </TouchableOpacity>
