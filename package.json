@@ -24,7 +24,6 @@
   "homepage": "https://github.com/RNCommon/react-native-hecom-common#readme",
   "dependencies": {
     "md5": "^2.2.1",
-    "rc-dialog": "^6.5.11",
-    "react-native-image-zoom-viewer": "^2.2.15"
+    "rc-dialog": "^6.5.11"
   }
 }
