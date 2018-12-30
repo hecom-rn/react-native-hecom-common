@@ -9,7 +9,6 @@ import TitleDropDownFilter from './component/TitleDropDownFilter';
 import * as ObjectUtil from './util/ObjectUtil';
 import * as StringUtil from './util/StringUtil';
 import * as AliyunUtil from './util/AliyunUtil';
-import './global';
 
 export {
     ArrowImage,
