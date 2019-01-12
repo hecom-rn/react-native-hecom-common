@@ -1,4 +1,3 @@
-import ArrowImage from './component/ArrowImage';
 import ActivityIndicator from './component/ActivityIndicator';
 import SeperatorLine from './component/SeperatorLine';
 import SeperatorSpace from './component/SeperatorSpace';
@@ -11,7 +10,6 @@ import * as StringUtil from './util/StringUtil';
 import * as AliyunUtil from './util/AliyunUtil';
 
 export {
-    ArrowImage,
     ActivityIndicator,
     SeperatorLine,
     SeperatorSpace,
