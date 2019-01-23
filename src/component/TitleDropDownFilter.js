@@ -26,7 +26,7 @@ export default class extends React.Component {
                 }}
             >
                 <View style={styles.row}>
-                    <Text style={[styles.rowText, {color:textColor}]}>
+                    <Text numberOfLines={1} style={[styles.rowText, {color:textColor}]}>
                         {row}
                     </Text>
                     <View style={styles.rowBorder} />
