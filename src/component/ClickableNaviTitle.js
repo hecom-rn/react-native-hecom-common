@@ -34,7 +34,7 @@ export default class extends React.Component {
         return (
             <TouchableOpacity onPress={onPress}>
                 <View style={[styles.view, style]}>
-                    <Text style={[styles.text, textStyle]}>
+                    <Text numberOfLines={1} style={[styles.text, textStyle]}>
                         {title}
                     </Text>
                     <Image
