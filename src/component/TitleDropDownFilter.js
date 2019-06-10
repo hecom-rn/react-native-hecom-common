@@ -13,10 +13,15 @@ export default class extends React.Component {
         onSelect: PropTypes.func.isRequired, // 选中数据，(data) => undefined
         onPressCancel: PropTypes.func.isRequired, // 点击空白区域取消操作，() => undefined
         showY: PropTypes.number.isRequired, // 纵向偏移值，从何处开始显示下拉框
+        selectedColor: PropTypes.string, // 选中文字的颜色
+        unselectedColor: PropTypes.string, // 未选中文字的颜色
     };
 
     _renderRow = (row) => {
         const textColor = this.props.initialSelect === row ? '#e15151' : '#333333';
+        if(this.props.selectedColor && this.props.unselectedColor){
+            textColor = this.props.initialSelect === row ? this.props.selectedColor : this.props.unselectedColor;
+        }
         return (
             <TouchableOpacity
                 key={row}
