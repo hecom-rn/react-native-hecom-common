@@ -18,7 +18,7 @@ export default class extends React.Component {
     };
 
     _renderRow = (row) => {
-        const textColor = this.props.initialSelect === row ? '#e15151' : '#333333';
+        let textColor = this.props.initialSelect === row ? '#e15151' : '#333333';
         if(this.props.selectedColor && this.props.unselectedColor){
             textColor = this.props.initialSelect === row ? this.props.selectedColor : this.props.unselectedColor;
         }
