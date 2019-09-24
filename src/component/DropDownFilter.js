@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 export default class extends React.Component {
     static propTypes = {
         dataSource: PropTypes.array.isRequired, // 数据数组
-        onSelect: PropTypes.func.isRequired, // 选中数据，(data) => undefined
+        onSelect: PropTypes.func.isRequired, // 选中数据，(data,index) => undefined
         onPressCancel: PropTypes.func.isRequired, // 点击空白区域取消操作，() => undefined
         renderRow: PropTypes.func.isRequired, // 提供行视图，(data, index) => React.Component
         showY: PropTypes.number.isRequired, // 纵向偏移值，从何处开始显示下拉框
@@ -19,17 +19,16 @@ export default class extends React.Component {
     static get defaultProps() {
         return {
             rowOffset: (rowIndex) => 48 * rowIndex,
-            totalHeight: 48 * 5,
+            totalHeight: 48 * 7.7,
         };
     }
 
     constructor(props) {
         super(props);
+        this.animatedValue = new Animated.Value(-props.totalHeight);
         this.state = {
             rawData: props.dataSource,
-            canStartScroll: false,
         };
-        this.canScrollToTop = false;
     }
 
     componentDidMount() {
@@ -37,84 +36,52 @@ export default class extends React.Component {
     }
 
     show = () => {
-        this.scrollView.scrollTo({x: 0, y: this.props.rowOffset(this.state.rawData.length), animated: false});
-        setTimeout(() => {
-            this.scrollView && this.scrollView.scrollTo({x: 0, y: 0, animated: true});
-            setTimeout(() => {
-                this.setState({
-                    canStartScroll: true,
-                });
-            }, 500);
-        }, 5);
+        Animated.timing(this.animatedValue, {
+            toValue: 0,
+            duration: 200,
+            useNativeDriver: true
+        }).start();
     };
 
     hide = (func) => {
-        this.onSelect(undefined, func);
+        Animated.timing(this.animatedValue, {
+            toValue: -this.props.totalHeight,
+            duration: 200,
+            useNativeDriver: true
+        }).start(() => {
+            this.props.onPressCancel && this.props.onPressCancel();
+            typeof func === "function" && func();
+        });
     };
 
-    onSelect = (data, func) => {
-        let time = 0;
-        this.canScrollToTop = true;
-        if (global.isIos) {
-            time = 250;
-            this.scrollView.scrollTo({x: 0, y: this.props.rowOffset(this.state.rawData.length), animated: true});
-        } else {
-            time = 0;
-        }
-        this.timer = setTimeout(
-            () => {
-                if (typeof data === 'undefined') {
-                    this.props.onPressCancel();
-                } else {
-                    this.props.onSelect(data);
-                }
-                if (typeof func === "function") {
-                    func();
-                }
-            },
-            time,
-        );
-    };
-
-    onScroll = (event) => {
-        if (!this.state.canStartScroll) {
-            return;
-        }
-        const len = this.state.rawData.length;
-        const listLen = this.props.rowOffset(len);
-        if (listLen <= this.props.totalHeight && !this.canScrollToTop) {
-            this.scrollView.scrollTo({x: 0, y: 0, animated: false});
-        } else {
-            const deltaY = listLen - event.nativeEvent.contentOffset.y;
-            if (deltaY < this.props.totalHeight && !this.canScrollToTop) {
-                this.scrollView.scrollTo({
-                    x: 0,
-                    y: 48 * this.state.rawData.length - this.props.totalHeight,
-                    animated: false
-                });
-            }
-        }
+    onSelect = (data, index) => {
+        this.props.onSelect(data, index)
     };
 
     render() {
         return (
-            <TouchableOpacity
-                style={[{top: this.props.showY}, styles.container]}
-                activeOpacity={1.0}
+            <TouchableWithoutFeedback
                 onPress={this.hide}
             >
-                <View style={{height: this.props.totalHeight}}>
-                    <ScrollView
-                        ref={ref => this.scrollView = ref}
-                        showsVerticalScrollIndicator={true}
-                        bounces={false}
-                        scrollEventThrottle={1}
-                        onScroll={this.onScroll}
+                <Animated.View style={[{top: this.props.showY}, styles.container, {
+                    opacity: this.animatedValue.interpolate({
+                        inputRange: [-this.props.totalHeight, 0],
+                        outputRange: [0, 1]
+                    })
+                }]}>
+                    <Animated.View
+                        style={{height: this.props.totalHeight, transform: [{translateY: this.animatedValue}]}}
                     >
-                        {this.state.rawData.map(this.props.renderRow)}
-                    </ScrollView>
-                </View>
-            </TouchableOpacity>
+                        <ScrollView
+                            showsVerticalScrollIndicator={true}
+                            bounces={false}
+                            scrollEventThrottle={1}
+                        >
+                            {this.state.rawData.map(this.props.renderRow)}
+                        </ScrollView>
+                    </Animated.View>
+                </Animated.View>
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -125,8 +92,8 @@ const styles = StyleSheet.create({
         bottom: 0,
         right: 0,
         left: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        overflow: 'visible',
         zIndex: 65535,
-    },
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        overflow: 'hidden',
+    }
 });
