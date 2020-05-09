@@ -30,9 +30,9 @@ export default class extends React.Component {
 
     render() {
         const { title, onPress, imageStatus } = this.state;
-        const {style, textStyle, imageStyle} = this.props;
+        const {touchableStyle, style, textStyle, imageStyle} = this.props;
         return (
-            <TouchableOpacity onPress={onPress}>
+            <TouchableOpacity style={[touchableStyle]} onPress={onPress}>
                 <View style={[styles.view, style]}>
                     <Text numberOfLines={1} style={[styles.text, textStyle]}>
                         {title}
