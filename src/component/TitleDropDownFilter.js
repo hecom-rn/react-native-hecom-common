@@ -15,6 +15,7 @@ export default class extends React.Component {
         showY: PropTypes.number.isRequired, // 纵向偏移值，从何处开始显示下拉框
         selectedColor: PropTypes.string, // 选中文字的颜色
         unselectedColor: PropTypes.string, // 未选中文字的颜色
+        customChildView: PropTypes.func, // 自定义的顶部视图
     };
 
     _renderRow = (row, index) => {

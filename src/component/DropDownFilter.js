@@ -14,6 +14,7 @@ export default class extends React.Component {
         showY: PropTypes.number.isRequired, // 纵向偏移值，从何处开始显示下拉框
         rowOffset: PropTypes.func, // 行首距离顶部的偏移值计算，(rowIndex) => number
         totalHeight: PropTypes.number, // 总视图高度
+        customChildView: PropTypes.func, // 自定义的顶部视图
     };
 
     static get defaultProps() {
@@ -77,7 +78,8 @@ export default class extends React.Component {
                             bounces={false}
                             scrollEventThrottle={1}
                         >
-                            {this.state.rawData.map(this.props.renderRow)}
+                            {this.props.customChildView && this.props.customChildView()}
+                            {this.props.dataSource.map(this.props.renderRow)}
                         </ScrollView>
                     </Animated.View>
                 </Animated.View>
