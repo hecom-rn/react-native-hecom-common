@@ -35,8 +35,8 @@ export default class extends React.Component {
                     <Text numberOfLines={1} style={[styles.rowText, {color:textColor}]}>
                         {row}
                     </Text>
-                    <View style={styles.rowBorder} />
                 </View>
+                 <View style={styles.rowBorder} />
             </TouchableOpacity>
         );
     };
@@ -59,20 +59,16 @@ export default class extends React.Component {
 const styles = StyleSheet.create({
     row: {
         backgroundColor: 'white',
-        height: 48,
+        justifyContent: 'center',
+        paddingVertical: 16,
     },
     rowText: {
         fontSize: 16,
         color: '#333333',
-        marginLeft: 12,
-        marginRight: 12,
-        height: 47,
+        marginHorizontal: 12,
         textAlign: 'center',
-        paddingTop: 15,
     },
     rowBorder: {
-        marginLeft: 16,
-        marginRight: 16,
         height: StyleSheet.hairlineWidth,
         backgroundColor: '#e6e8ea'
     },
