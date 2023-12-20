@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import DropDownFilter from './DropDownFilter';
 import PropTypes from 'prop-types';
+import Badge from '@hecom/badge';
 
 /**
  * 导航栏的TitleView点击后下拉框。
@@ -9,6 +10,7 @@ import PropTypes from 'prop-types';
 export default class extends React.Component {
     static propTypes = {
         dataSource: PropTypes.array.isRequired, // 数据数组
+        badgeCounts: PropTypes.array, // 徽标数组，value为徽标数，value = 0或者null则不展示，超过99则显示99+
         initialSelect: PropTypes.number, // 初始选择
         onSelect: PropTypes.func.isRequired, // 选中数据，(data, index) => undefined
         onPressCancel: PropTypes.func.isRequired, // 点击空白区域取消操作，() => undefined
@@ -19,10 +21,12 @@ export default class extends React.Component {
     };
 
     _renderRow = (row, index) => {
+        const { badgeCounts } = this.props;
         let textColor = this.props.initialSelect === index ? '#e15151' : '#333333';
         if(this.props.selectedColor && this.props.unselectedColor){
             textColor = this.props.initialSelect === index ? this.props.selectedColor : this.props.unselectedColor;
         }
+        const count = badgeCounts && badgeCounts.length > index ? badgeCounts[index] : 0;
         return (
             <TouchableOpacity
                 key={index}
@@ -35,6 +39,20 @@ export default class extends React.Component {
                     <Text numberOfLines={1} style={[styles.rowText, {color:textColor}]}>
                         {row}
                     </Text>
+                    {count > 0 && (
+                        <Badge
+                            maxCount={99}
+                            radius={9}
+                            bgColor={'#fc3b39'}
+                            outSpace={1.5}
+                            outBgColor="white"
+                            style={{
+                                top: -6,
+                                marginLeft: -13,
+                            }}
+                            count={count}
+                        />
+                    )}
                 </View>
                  <View style={styles.rowBorder} />
             </TouchableOpacity>
@@ -61,6 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'center',
         paddingVertical: 16,
+        flexDirection: 'row',
     },
     rowText: {
         fontSize: 16,

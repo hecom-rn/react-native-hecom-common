@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/RNCommon/react-native-hecom-common#readme",
   "dependencies": {
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "@hecom/badge": "^1.0.3"
   }
 }
