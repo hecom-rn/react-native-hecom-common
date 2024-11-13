@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, findNodeHandle, NativeModules, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -29,6 +29,7 @@ export default class extends React.Component {
         this.animatedValue = new Animated.Value(-props.totalHeight);
         this.state = {
             rawData: props.dataSource,
+            stateHeight: props.totalHeight,
         };
     }
 
@@ -46,7 +47,7 @@ export default class extends React.Component {
 
     hide = (func) => {
         Animated.timing(this.animatedValue, {
-            toValue: -this.props.totalHeight,
+            toValue: -this.state.stateHeight,
             duration: 200,
             useNativeDriver: true
         }).start(() => {
@@ -63,15 +64,28 @@ export default class extends React.Component {
         return (
             <TouchableWithoutFeedback
                 onPress={this.hide}
+                ref={(sectionHeader) => { this.sectionHeader = sectionHeader; }}
+                onLayout={(event) => {
+                    console.log('event.nativeEvent = ', event.nativeEvent);
+                    const handle = findNodeHandle(this.sectionHeader);
+                    const screen = Dimensions.get('screen');
+                    console.log('screen = ', screen);
+                    NativeModules.UIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
+                       const maxHeight = Math.min(screen?.height - pageY - 90, this.props.totalHeight);
+                        if (maxHeight !== this.state.stateHeight) {
+                            this.setState({stateHeight: maxHeight});
+                        }
+                    });
+                  }}
             >
                 <Animated.View style={[{top: this.props.showY}, styles.container, {
                     opacity: this.animatedValue.interpolate({
-                        inputRange: [-this.props.totalHeight, 0],
+                        inputRange: [-this.state.stateHeight, 0],
                         outputRange: [0, 1]
                     })
                 }]}>
                     <Animated.View
-                        style={{height: this.props.totalHeight, transform: [{translateY: this.animatedValue}]}}
+                        style={{height: this.state.stateHeight, transform: [{translateY: this.animatedValue}]}}
                     >
                         <ScrollView
                             showsVerticalScrollIndicator={true}
