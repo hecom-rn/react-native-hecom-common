@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, findNodeHandle, NativeModules, Dimensions } from 'react-native';
+import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, findNodeHandle, UIManager, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -70,7 +70,7 @@ export default class extends React.Component {
                     const handle = findNodeHandle(this.sectionHeader);
                     const screen = Dimensions.get('screen');
                     console.log('screen = ', screen);
-                    NativeModules.UIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
+                    UIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
                        const maxHeight = Math.min(screen?.height - pageY - 90, this.props.totalHeight);
                         if (maxHeight !== this.state.stateHeight) {
                             this.setState({stateHeight: maxHeight});
