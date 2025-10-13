@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, findNodeHandle, UIManager, Dimensions } from 'react-native';
+import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, View, findNodeHandle, UIManager, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 
 /**
@@ -62,22 +62,7 @@ export default class extends React.Component {
 
     render() {
         return (
-            <TouchableWithoutFeedback
-                onPress={this.hide}
-                ref={(sectionHeader) => { this.sectionHeader = sectionHeader; }}
-                onLayout={(event) => {
-                    console.log('event.nativeEvent = ', event.nativeEvent);
-                    const handle = findNodeHandle(this.sectionHeader);
-                    const screen = Dimensions.get('screen');
-                    console.log('screen = ', screen);
-                    UIManager.measure(handle, (x, y, width, height, pageX, pageY) => {
-                       const maxHeight = Math.min(screen?.height - pageY - 90, this.props.totalHeight);
-                        if (maxHeight !== this.state.stateHeight) {
-                            this.setState({stateHeight: maxHeight});
-                        }
-                    });
-                  }}
-            >
+            <TouchableWithoutFeedback>
                 <Animated.View style={[{top: this.props.showY}, styles.container, {
                     opacity: this.animatedValue.interpolate({
                         inputRange: [-this.state.stateHeight, 0],
@@ -85,7 +70,7 @@ export default class extends React.Component {
                     })
                 }]}>
                     <Animated.View
-                        style={{height: this.state.stateHeight, transform: [{translateY: this.animatedValue}]}}
+                        style={{maxHeight: this.state.stateHeight, transform: [{translateY: this.animatedValue}]}}
                     >
                         <ScrollView
                             showsVerticalScrollIndicator={true}
@@ -96,6 +81,17 @@ export default class extends React.Component {
                             {this.props.dataSource.map(this.props.renderRow)}
                         </ScrollView>
                     </Animated.View>
+                    
+                    <TouchableWithoutFeedback
+                        style={{ flex: 1 }}
+                        onPress={() => {
+                            console.log('touch DropDownFilter');
+                            this.hide();
+                        }} 
+                    >
+                        <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', }} />
+                    </TouchableWithoutFeedback>
+                    
                 </Animated.View>
             </TouchableWithoutFeedback>
         );
@@ -109,7 +105,6 @@ const styles = StyleSheet.create({
         right: 0,
         left: 0,
         zIndex: 65535,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         overflow: 'hidden',
     }
 });
