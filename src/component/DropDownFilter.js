@@ -1,6 +1,6 @@
-import React from 'react';
-import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, View, findNodeHandle, UIManager, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 
 /**
  * 通用的下拉筛选页面。
@@ -15,6 +15,7 @@ export default class extends React.Component {
         rowOffset: PropTypes.func, // 行首距离顶部的偏移值计算，(rowIndex) => number
         totalHeight: PropTypes.number, // 总视图高度
         customChildView: PropTypes.func, // 自定义的顶部视图
+        customBottomView: PropTypes.func, // 自定义的底部视图
     };
 
     static get defaultProps() {
@@ -72,6 +73,7 @@ export default class extends React.Component {
                     <Animated.View
                         style={{maxHeight: this.state.stateHeight, transform: [{translateY: this.animatedValue}]}}
                     >
+                        <View style={{ flexShrink: 1}}>
                         <ScrollView
                             showsVerticalScrollIndicator={true}
                             bounces={false}
@@ -80,6 +82,8 @@ export default class extends React.Component {
                             {this.props.customChildView && this.props.customChildView()}
                             {this.props.dataSource.map(this.props.renderRow)}
                         </ScrollView>
+                        </View>
+                        {this.props.customBottomView && this.props.customBottomView()}
                     </Animated.View>
                     
                     <TouchableWithoutFeedback
