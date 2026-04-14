@@ -1,6 +1,6 @@
-import React from 'react';
-import { TouchableOpacity, View, StyleSheet, Text, Image } from 'react-native';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default class extends React.Component {
     static propTypes = {
@@ -30,7 +30,7 @@ export default class extends React.Component {
 
     render() {
         const { title, onPress, imageStatus } = this.state;
-        const {touchableStyle, style, textStyle, imageStyle} = this.props;
+        const { touchableStyle, style, textStyle, imageStyle } = this.props;
         return (
             <TouchableOpacity style={[touchableStyle]} onPress={onPress}>
                 <View style={[styles.view, style]}>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#394352',
         textAlign: 'center',
+        flexShrink: 1,
     },
     image: {
         width: 11,
