@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Animated, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import { Animated, Platform, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+
+const isAndroid = Platform.OS === 'android';
 
 /**
  * 通用的下拉筛选页面。
@@ -64,38 +66,40 @@ export default class extends React.Component {
     render() {
         return (
             <TouchableWithoutFeedback>
-                <Animated.View style={[{top: this.props.showY}, styles.container, {
+                <Animated.View style={[{ top: this.props.showY }, styles.container, {
                     opacity: this.animatedValue.interpolate({
                         inputRange: [-this.state.stateHeight, 0],
                         outputRange: [0, 1]
                     })
                 }]}>
                     <Animated.View
-                        style={{maxHeight: this.state.stateHeight, transform: [{translateY: this.animatedValue}]}}
+                        style={{ maxHeight: this.state.stateHeight, transform: [{ translateY: this.animatedValue }] }}
                     >
-                        <View style={{ flexShrink: 1}}>
-                        <ScrollView
-                            showsVerticalScrollIndicator={true}
-                            bounces={false}
-                            scrollEventThrottle={1}
-                        >
-                            {this.props.customChildView && this.props.customChildView()}
-                            {this.props.dataSource.map(this.props.renderRow)}
-                        </ScrollView>
+                        <View style={{ flexShrink: 1 }}>
+                            <ScrollView
+                                showsVerticalScrollIndicator={true}
+                                bounces={false}
+                                scrollEventThrottle={1}
+                            >
+                                {this.props.customChildView && this.props.customChildView()}
+                                {this.props.dataSource.map(this.props.renderRow)}
+                                {this.props.customBottomView && !isAndroid && this.props.customBottomView()}
+                            </ScrollView>
                         </View>
-                        {this.props.customBottomView && this.props.customBottomView()}
+                        {this.props.customBottomView && isAndroid && this.props.customBottomView()}
+
                     </Animated.View>
-                    
+
                     <TouchableWithoutFeedback
                         style={{ flex: 1 }}
                         onPress={() => {
                             console.log('touch DropDownFilter');
                             this.hide();
-                        }} 
+                        }}
                     >
                         <View style={{ flex: 1, backgroundColor: 'rgba(0, 0, 0, 0.5)', }} />
                     </TouchableWithoutFeedback>
-                    
+
                 </Animated.View>
             </TouchableWithoutFeedback>
         );
