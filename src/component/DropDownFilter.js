@@ -83,10 +83,9 @@ export default class extends React.Component {
                             >
                                 {this.props.customChildView && this.props.customChildView()}
                                 {this.props.dataSource.map(this.props.renderRow)}
-                                {this.props.customBottomView && !isAndroid && this.props.customBottomView()}
+                                {this.props.customBottomView && this.props.customBottomView()}
                             </ScrollView>
                         </View>
-                        {this.props.customBottomView && isAndroid && this.props.customBottomView()}
 
                     </Animated.View>
 
