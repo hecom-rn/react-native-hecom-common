@@ -18,6 +18,7 @@ export default class extends React.Component {
         totalHeight: PropTypes.number, // 总视图高度
         customChildView: PropTypes.func, // 自定义的顶部视图
         customBottomView: PropTypes.func, // 自定义的底部视图
+        totalHeightAsHeight: PropTypes.bool, // 是否使用总高度作为下拉框高度，默认false
     };
 
     static get defaultProps() {
@@ -64,6 +65,7 @@ export default class extends React.Component {
     };
 
     render() {
+        const { totalHeightAsHeight } = this.props;
         return (
             <TouchableWithoutFeedback>
                 <Animated.View style={[{ top: this.props.showY }, styles.container, {
@@ -73,9 +75,9 @@ export default class extends React.Component {
                     })
                 }]}>
                     <Animated.View
-                        style={{ maxHeight: this.state.stateHeight, transform: [{ translateY: this.animatedValue }] }}
+                        style={{ backgroundColor: '#f6f6f6', maxHeight: this.state.stateHeight, transform: [{ translateY: this.animatedValue }] }}
                     >
-                        <View style={{ flexShrink: 1 }}>
+                        <View style={ totalHeightAsHeight ? { height: this.state.stateHeight } : { flexShrink: 1 } }>
                             <ScrollView
                                 showsVerticalScrollIndicator={true}
                                 bounces={false}
