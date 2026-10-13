@@ -42,10 +42,14 @@ export default class extends React.Component {
     }
 
     show = () => {
+        // 鸿蒙上 useNativeDriver 为 true 时，动画帧经 synchronouslyUpdateViewOnUIThread 直推组件，
+        // 若组件尚未在 ArkTS 侧完成挂载注册则该帧被静默丢弃且无重试；挂载繁忙时（如列表刷新后再点筛选）
+        // 200ms 动画窗口内的帧可能全部丢失，面板停留在初始 opacity=0 表现为"透明面板"。
+        // JS 驱动逐帧推送 props 直至动画结束，不依赖原生节点绑定时机。
         Animated.timing(this.animatedValue, {
             toValue: 0,
             duration: 200,
-            useNativeDriver: true
+            useNativeDriver: false
         }).start();
     };
 
@@ -53,7 +57,7 @@ export default class extends React.Component {
         Animated.timing(this.animatedValue, {
             toValue: -this.state.stateHeight,
             duration: 200,
-            useNativeDriver: true
+            useNativeDriver: false
         }).start(() => {
             this.props.onPressCancel && this.props.onPressCancel();
             typeof func === "function" && func();
